@@ -12,7 +12,11 @@
         <param name="ios-package" value="CDVUnityAds"/>
       </feature>
     </config-file>
+
     <header-file src="src/ios/CDVUnityAds.h" />
     <source-file src="src/ios/CDVUnityAds.m" />
+
+    <framework src="src/ios/UnityAds.framework" custom="true"/>
+    <resource-file src="src/ios/UnityAds.bundle" /> 
   </platform>
 </plugin>
