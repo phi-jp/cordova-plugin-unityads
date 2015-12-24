@@ -1,7 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-unityads" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-plugin-unityads</name>
-    <js-module name="unityads" src="www/cordova-plugin-unityads.js">
-        <clobbers target="unityads" />
-    </js-module>
+  <name>cordova-plugin-unityads</name>
+  <js-module name="unityads" src="www/cordova-plugin-unityads.js">
+    <clobbers target="unityads" />
+  </js-module>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="UnityAds">
+        <param name="ios-package" value="CDVUnityAds"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/CDVUnityAds.h" />
+    <source-file src="src/ios/CDVUnityAds.m" />
+  </platform>
 </plugin>
