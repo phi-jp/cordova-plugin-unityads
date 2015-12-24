@@ -1,5 +1,7 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function(arg0, success, error) {
-    exec(success, error, "cordova-plugin-unityads", "coolMethod", [arg0]);
+module.exports = {
+  init: function(gameId) {
+    exec(success, error, "UnityAds", "init", [gameId]);
+  }
 };
