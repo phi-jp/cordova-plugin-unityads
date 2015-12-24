@@ -10,11 +10,13 @@
     
     self.gameId = gameId;
     self.isTest = isTest;
+    self.callbackId = command.callbackId;
     
     [[UnityAds sharedInstance] startWithGameId:self.gameId andViewController:self.viewController];
     [[UnityAds sharedInstance] setTestMode:self.isTest];
     [[UnityAds sharedInstance] setDebugMode:NO];
     [[UnityAds sharedInstance] setDelegate:self];
+    [[UnityAds sharedInstance] setZone:@"rewardedVideoZone"];
 }
 
 - (void)showAds:(CDVInvokedUrlCommand *)command {
@@ -24,9 +26,20 @@
     }
 }
 
-- (void)unityAdsVideoCompleted:(NSString *)rewardItemKey skipped:(BOOL)skipped {
-    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"adsvideocompleted"];
+- (void)unityAdsFetchCompleted {
+    NSLog(@"unityAdsFetchCompleted");
+    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"adsvideoloaded"];
+    [pr setKeepCallbackAsBool:YES];
     [self.commandDelegate sendPluginResult:pr callbackId:self.callbackId];
+}
+
+- (void)unityAdsVideoCompleted:(NSString *)rewardItemKey skipped:(BOOL)skipped {
+    // スキップしてない時のみ
+    if (!skipped) {
+        CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"adsvideocompleted"];
+        [pr setKeepCallbackAsBool:YES];
+        [self.commandDelegate sendPluginResult:pr callbackId:self.callbackId];
+    }
 }
 
 @end

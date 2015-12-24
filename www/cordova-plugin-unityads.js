@@ -18,9 +18,17 @@ module.exports = {
   init: function(gameId, isTest) {
     isTest = (isTest !== undefined) ? isTest : true;
 
+    var self = this;
     var success = function(msg) {
-      if (typeof result === 'string') {
+      console.log('UnityAds: success');
+      
+      if (typeof msg === 'string') {
+        if (msg === 'adsvideoloaded') {
 
+        }
+        else if (msg === 'adsvideocompleted') {
+          self.fire(msg);
+        }
       }
     };
     var error = function(e) {
@@ -30,7 +38,7 @@ module.exports = {
   },
 
   showAds: function(callback) {
-    this.one('adsdidhide', callback);
+    this.one('adsvideocompleted', callback);
     exec(callback, null, "UnityAds", "showAds");
   },
 
