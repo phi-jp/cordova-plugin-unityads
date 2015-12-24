@@ -20,7 +20,9 @@
     </config-file>
 
     <source-file src="src/android/UnityAds.java" target-dir="src/jp/phi/cordova/plugin/unityads" />
-    <source-file src="src/android/unity-ads.jar" target-dir="libs" />
+
+    <framework src="src/android/unity-ads.gradle" custom="true" type="gradleReference" />
+    <source-file src="src/android/unity-ads.aar" target-dir="libs" />
   </platform>
 
   <!-- ios -->
