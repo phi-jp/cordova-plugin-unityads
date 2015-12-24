@@ -18,5 +18,8 @@
 
     <framework src="src/ios/UnityAds.framework" custom="true"/>
     <resource-file src="src/ios/UnityAds.bundle" /> 
+    <framework src="StoreKit.framework"/>
+    <framework src="AdSupport.framework"/>
+    <framework src="CoreTelephony.framework"/>
   </platform>
 </plugin>
