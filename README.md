@@ -24,3 +24,25 @@ cordova platform remove ios
 cordova platform add ios
 cordova build ios
 ```
+
+## setup
+
+セットアップ
+
+```
+cordova create cordova-test
+cd cordova-test
+cordova platform add ios
+cordova plugin add https://github.com/phi-jp/cordova-plugin-unityads.git
+cd plugins
+rm -rf cordova-plugin-unityads/
+ln -s ../../cordova-plugin-unityads
+```
+
+## update
+
+反映させる
+
+```
+cordova prepare
+```

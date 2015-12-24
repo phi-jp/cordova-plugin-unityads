@@ -5,6 +5,24 @@
     <clobbers target="unityads" />
   </js-module>
 
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="UnityAdsPlugin">
+        <param name="android-package" value="com.cranberrygame.cordova.plugin.ad.unityads.UnityAdsPlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>     
+    </config-file>
+
+    <source-file src="src/android/UnityAds.java" target-dir="src/jp/phi/cordova/plugin/unityads" />
+    <source-file src="src/android/unity-ads.jar" target-dir="libs" />
+  </platform>
+
   <!-- ios -->
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
