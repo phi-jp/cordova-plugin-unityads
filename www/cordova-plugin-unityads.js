@@ -20,16 +20,8 @@ module.exports = {
 
     var self = this;
     var success = function(msg) {
-      console.log('UnityAds: success');
-      
-      if (typeof msg === 'string') {
-        if (msg === 'adsvideoloaded') {
-
-        }
-        else if (msg === 'adsvideocompleted') {
-          self.fire(msg);
-        }
-      }
+      console.log('UnityAds: success - ' + msg);
+      self.fire(msg);
     };
     var error = function(e) {
       console.log('UnityAds: error');
@@ -38,7 +30,7 @@ module.exports = {
   },
 
   showAds: function(callback) {
-    this.one('adsvideocompleted', callback);
+    this.one('adsvideohide', callback);
     exec(callback, null, "UnityAds", "showAds");
   },
 

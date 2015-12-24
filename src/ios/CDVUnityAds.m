@@ -42,4 +42,10 @@
     }
 }
 
+- (void)unityAdsDidHide {
+    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"adsvideohide"];
+    [pr setKeepCallbackAsBool:YES];
+    [self.commandDelegate sendPluginResult:pr callbackId:self.callbackId];
+}
+
 @end
