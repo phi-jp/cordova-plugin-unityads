@@ -21,5 +21,6 @@
     <framework src="StoreKit.framework"/>
     <framework src="AdSupport.framework"/>
     <framework src="CoreTelephony.framework"/>
+    <framework src="SystemConfiguration.framework"/>
   </platform>
 </plugin>
