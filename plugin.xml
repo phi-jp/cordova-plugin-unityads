@@ -9,7 +9,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UnityAdsPlugin">
-        <param name="android-package" value="com.cranberrygame.cordova.plugin.ad.unityads.UnityAdsPlugin"/>
+        <param name="android-package" value="jp.phi.cordova.plugin.unityads"/>
       </feature>
     </config-file>
 
@@ -20,9 +20,7 @@
     </config-file>
 
     <source-file src="src/android/UnityAds.java" target-dir="src/jp/phi/cordova/plugin/unityads" />
-
-    <framework src="src/android/unity-ads.gradle" custom="true" type="gradleReference" />
-    <source-file src="src/android/unity-ads.aar" target-dir="libs" />
+    <source-file src="src/android/unity-ads.jar" target-dir="libs" />
   </platform>
 
   <!-- ios -->
