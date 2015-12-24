@@ -2,13 +2,13 @@
 #import <Cordova/CDVPlugin.h>
 #import <UnityAds/UnityAds.h>
 
-@interface CDVUnityAds : CDVPlugin
+@interface CDVUnityAds : CDVPlugin<UnityAdsDelegate>
 
+@property NSString *callbackId;
 @property NSString *gameId;
 @property BOOL isTest;
 
 - (void)init:(CDVInvokedUrlCommand*)command;
-- (void)showVideoAd:(CDVInvokedUrlCommand*)command;
-- (void)showRewardedVideoAd:(CDVInvokedUrlCommand*)command;
+- (void)showAds:(CDVInvokedUrlCommand*)command;
 
 @end

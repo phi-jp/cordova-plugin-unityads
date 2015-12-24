@@ -14,17 +14,19 @@
     [[UnityAds sharedInstance] startWithGameId:self.gameId andViewController:self.viewController];
     [[UnityAds sharedInstance] setTestMode:self.isTest];
     [[UnityAds sharedInstance] setDebugMode:NO];
+    [[UnityAds sharedInstance] setDelegate:self];
 }
 
-- (void)showVideoAd:(CDVInvokedUrlCommand *)command {
+- (void)showAds:(CDVInvokedUrlCommand *)command {
     if ([[UnityAds sharedInstance] canShow] && [[UnityAds sharedInstance] canShowAds]) {
         // If both are ready, show the ad.
         [[UnityAds sharedInstance] show];
     }
 }
 
-- (void)showRewardedVideoAd:(CDVInvokedUrlCommand *)command {
-    
+- (void)unityAdsVideoCompleted:(NSString *)rewardItemKey skipped:(BOOL)skipped {
+    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"adsvideocompleted"];
+    [self.commandDelegate sendPluginResult:pr callbackId:self.callbackId];
 }
 
 @end
