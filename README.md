@@ -10,3 +10,9 @@ cordova plugin add cordova-plugin-unityads
 cordova emulate ios --target='iPhone-5s'
 ```
 
+```
+cordova plugin add https://github.com/phi-jp/cordova-plugin-unityads.git
+cd platforms/ios/HelloCordova/Plugins/
+rm -rf cordova-plugin-unityads
+ln -s ../../../../../cordova-plugin-unityads/src/ios/ cordova-plugin-unityads
+```
