@@ -15,6 +15,8 @@ var exec = require('cordova/exec');
 
 */
 module.exports = {
+  _listener: {},
+
   init: function(gameId, isTest) {
     isTest = (isTest !== undefined) ? isTest : true;
 
@@ -35,9 +37,6 @@ module.exports = {
   },
 
   on: function(eventName, listener) {
-    if (!this._listener) {
-      this._listener = {};
-    }
     this._listener[eventName] = listener;
   },
 
