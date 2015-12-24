@@ -1,3 +1,4 @@
+#import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
 
 
@@ -6,6 +7,6 @@
 @property NSString *gameId;
 @property BOOL isTest;
 
-- (void) init:(CDVInvokedUrlCommand*) command;
+- (void)init:(CDVInvokedUrlCommand*)command;
 
 @end

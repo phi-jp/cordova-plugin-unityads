@@ -1,4 +1,6 @@
+#import <Cordova/CDV.h>
 #import "CDVUnityAds.h"
+
 
 @implementation CDVUnityAds
 
