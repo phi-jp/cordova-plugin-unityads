@@ -28,12 +28,12 @@ module.exports = {
     var error = function(e) {
       console.log('UnityAds: error');
     };
-    exec(success, error, "UnityAds", "init", [gameId, isTest]);
+    exec(success, error, "UnityAdsPlugin", "init", [gameId, isTest]);
   },
 
   showAds: function(callback) {
     this.one('adsvideohide', callback);
-    exec(callback, null, "UnityAds", "showAds");
+    exec(callback, null, "UnityAdsPlugin", "showAds");
   },
 
   on: function(eventName, listener) {
