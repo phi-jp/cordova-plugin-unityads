@@ -12,7 +12,7 @@ import org.apache.cordova.CordovaInterface;
 
 import com.unity3d.ads.android.UnityAds;
 
-public class UnityAds extends CordovaPlugin {
+public class UnityAdsPlugin extends CordovaPlugin {
 
     public UnityAds() {
 
