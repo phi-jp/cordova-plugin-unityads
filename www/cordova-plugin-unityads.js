@@ -33,7 +33,7 @@ module.exports = {
 
   showAds: function(callback) {
     this.one('adsvideohide', callback);
-    exec(callback, null, "UnityAdsPlugin", "showAds");
+    exec(callback, null, "UnityAdsPlugin", "showAds", []);
   },
 
   on: function(eventName, listener) {
@@ -54,6 +54,6 @@ module.exports = {
   },
 
   clear: function(eventName) {
-    this._listener[eventName] = [];
+    this._listener[eventName] = null;
   },
 };
