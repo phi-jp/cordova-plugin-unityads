@@ -9,7 +9,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UnityAdsPlugin">
-        <param name="android-package" value="jp.phi.cordova.plugin.unityads"/>
+        <param name="android-package" value="jp.phi.cordova.plugin.unityads.UnityAds"/>
       </feature>
     </config-file>
 
