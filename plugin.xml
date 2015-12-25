@@ -19,6 +19,14 @@
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>     
     </config-file>
 
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="com.unity3d.ads.android.view.UnityAdsFullscreenActivity"
+      android:configChanges=
+       "fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:hardwareAccelerated="true" />
+    </config-file>
+
     <source-file src="src/android/UnityAdsPlugin.java" target-dir="src/jp/phi/cordova/plugin/unityads" />
     <source-file src="src/android/unity-ads.jar" target-dir="libs" />
   </platform>

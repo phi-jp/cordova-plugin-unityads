@@ -9,6 +9,7 @@ import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,12 +17,13 @@ import org.json.JSONObject;
 
 import com.unity3d.ads.android.IUnityAdsListener;
 import com.unity3d.ads.android.UnityAds;
-
+import com.unity3d.ads.android.view.UnityAdsFullscreenActivity;
 
 public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
 
     protected String gameId;
     protected boolean isTest;
+    private CallbackContext callbackContext;
 
     public UnityAdsPlugin() {
 
@@ -37,14 +39,16 @@ public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
 
         this.gameId = gameId;
         this.isTest = isTest;
+        this.callbackContext = callbackContext;
 
-        UnityAds.init(cordova.getActivity(), this.gameId, this);
+//        UnityAds.init(cordova.getActivity(), this.gameId, this);
+        UnityAds.init(cordova.getActivity(), "11001", this);
         UnityAds.setTestMode(this.isTest);
-        UnityAds.setDebugMode(false);
-//        UnityAds.setZone("rewardedVideoZone");
+//        UnityAds.setDebugMode(false);
     }
 
     private void showAds(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        UnityAds.setZone("rewardedVideoZone");
         if(UnityAds.canShow() && UnityAds.canShowAds()) {
             UnityAds.show();
         }
@@ -69,6 +73,9 @@ public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
      * 動画在庫がある場合のコールバック
      */
     public void onFetchCompleted() {
+        PluginResult pr = new PluginResult(PluginResult.Status.OK, "adsvideoloaded");
+        pr.setKeepCallback(true);
+        this.callbackContext.sendPluginResult(pr);
     }
 
     @Override
@@ -76,6 +83,7 @@ public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
      * 動画在庫がない場合のコールバック
      */
     public void onFetchFailed() {
+
     }
 
     @Override
