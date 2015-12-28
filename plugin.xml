@@ -28,8 +28,9 @@
     </config-file>
 
     <source-file src="src/android/UnityAdsPlugin.java" target-dir="src/jp/phi/cordova/plugin/unityads" />
-    <source-file src="src/android/unity-ads.jar" target-dir="libs" />
-    <source-file src="src/android/unity-ads/res/layout/unityads_view_video_play.xml" target-dir="res/layout"/>
+
+    <resource-file src="src/android/unity-ads.aar" target="libs/unity-ads.aar" />
+    <framework src="src/android/unity-ads.gradle" custom="true" type="gradleReference" />
   </platform>
 
   <!-- ios -->
