@@ -99,14 +99,17 @@ public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
 
     @Override
     /**
-     * UnityAdsが表示されたコールバック
+     * UnityAdsが閉じられたコールバック
      */
     public void onHide() {
+        PluginResult pr = new PluginResult(PluginResult.Status.OK, "adsvideohide");
+        pr.setKeepCallback(true);
+        this.callbackContext.sendPluginResult(pr);
     }
 
     @Override
     /**
-     * UnityAdsが閉じられたコールバック
+     * UnityAdsが表示されたコールバック
      */
     public void onShow() {
     }
