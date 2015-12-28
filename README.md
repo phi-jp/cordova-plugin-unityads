@@ -21,7 +21,7 @@ ln -s ../../../../../cordova-plugin-unityads/src/ios/ cordova-plugin-unityads
 cordova plugin remove cordova-plugin-unityads
 cordova plugin add https://github.com/phi-jp/cordova-plugin-unityads.git
 cordova remove android
-cordova add android
+cordova platform add android
 cordova build android
 ```
 

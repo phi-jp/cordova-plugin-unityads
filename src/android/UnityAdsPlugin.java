@@ -52,7 +52,9 @@ public class UnityAdsPlugin extends CordovaPlugin implements IUnityAdsListener {
     private void _init() {
         String name = cordova.getActivity().getPackageName();
         UnityAds.init(cordova.getActivity(), this.gameId, this);
-        UnityAds.setTestMode(this.isTest);
+        UnityAds.setDebugMode(true);
+        UnityAds.setTestMode(true);
+        // UnityAds.setTestMode(this.isTest);
 //        UnityAds.setDebugMode(false);
     }
 
