@@ -42,7 +42,7 @@ module.exports = {
 
   one: function(eventName, listener) {
     this.on(eventName, function() {
-      listener();
+      listener && listener();
       this.clear(eventName);
     }.bind(this))
   },
